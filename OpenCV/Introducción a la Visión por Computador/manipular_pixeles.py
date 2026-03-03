@@ -41,13 +41,13 @@ def posicionPixeles():
     plt.title('Gato')
     plt.show()
 
-    ojos = im_RGB[274:372, 203:602]
+    ojos = im_RGB[274:372, 203:602]  # Los pixeles en MatPlotLib están alreves "[y,x]"
     plt.figure()
     plt.imshow(ojos)
     plt.title('Ojos de Gato')
     plt.show()
     
-    im_RGB[311, 347] = (255, 0, 0)      # Los pixeles de im_RGB están alreves "[y,x]"
+    im_RGB[311, 347] = (255, 0, 0)
     plt.figure()
     plt.imshow(im_RGB)
     plt.title('Gato con Pixel Rojo en el Ojo')

@@ -1,7 +1,5 @@
 import cv2 as cv
 import os
-import matplotlib.pyplot as plt
-import numpy as np
 
 def readVideo(videoPath):
     # Obtiene el objeto del video (ya sea grabado o de la webcam)
@@ -52,7 +50,8 @@ if __name__ == '__main__':
     root = os.getcwd()
     imgPath = os.path.join(root, 'Nombre_Video.avi')
 
-    video = readVideo(imgPath)    # O pongo el path del video o pongo el número de la webcam
+    #video = readVideo(imgPath)    # O pongo el path del video o pongo el número de la webcam
+    video = readVideo(0)
     
     frames = mostrarVideo(video)
     
