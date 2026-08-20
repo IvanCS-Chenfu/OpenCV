@@ -1,0 +1,2 @@
+#include <open3d/Open3D.h>
+int main(){ auto c=open3d::io::CreateImageFromFile("color.png"); auto d=open3d::io::CreateImageFromFile("depth.png"); if(!c||!d) return 1; auto rgbd=open3d::geometry::RGBDImage::CreateFromColorAndDepth(*c,*d,1000.0,4.0,false); open3d::camera::PinholeCameraIntrinsic K(open3d::camera::PinholeCameraIntrinsicParameters::PrimeSenseDefault); auto pc=open3d::geometry::PointCloud::CreateFromRGBDImage(*rgbd,K); open3d::io::WritePointCloud("rgbd_cloud.ply",*pc); }

@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(opencv_09_transformaciones_geometricas LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(OpenCV REQUIRED)
+add_executable(opencv_09_transformaciones_geometricas main.cpp)
+target_include_directories(opencv_09_transformaciones_geometricas PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(opencv_09_transformaciones_geometricas PRIVATE ${OpenCV_LIBS})

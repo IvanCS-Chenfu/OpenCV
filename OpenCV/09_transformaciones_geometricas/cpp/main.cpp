@@ -1,0 +1,2 @@
+#include <opencv2/opencv.hpp>
+int main(){ auto im=cv::imread("input.jpg"); if(im.empty()) return 1; int w=im.cols,h=im.rows; std::vector<cv::Point2f> s={{0,0},{float(w-1),0},{float(w-1),float(h-1)},{0,float(h-1)}}, d={{40,30},{float(w-80),0},{float(w-1),float(h-60)},{20,float(h-1)}}; auto H=cv::getPerspectiveTransform(s,d); cv::Mat out; cv::warpPerspective(im,out,H,im.size()); cv::imwrite("output_warp.png",out); }

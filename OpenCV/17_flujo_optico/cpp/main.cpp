@@ -1,0 +1,3 @@
+#include <opencv2/opencv.hpp>
+#include <iostream>
+int main(){ cv::VideoCapture cap("input.mp4"); cv::Mat prev,frame,pg,g; if(!cap.read(prev)) return 1; cv::cvtColor(prev,pg,cv::COLOR_BGR2GRAY); std::vector<cv::Point2f> pts; cv::goodFeaturesToTrack(pg,pts,400,0.01,8); while(cap.read(frame)){cv::cvtColor(frame,g,cv::COLOR_BGR2GRAY); std::vector<cv::Point2f> nxt; std::vector<uchar> st; std::vector<float> err; cv::calcOpticalFlowPyrLK(pg,g,pts,nxt,st,err); std::vector<cv::Point2f> keep; for(size_t i=0;i<st.size();++i) if(st[i]) keep.push_back(nxt[i]); pts.swap(keep); g.copyTo(pg); std::cout<<"tracks "<<pts.size()<<"\n";} }

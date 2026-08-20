@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(opencv_12_hough LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(OpenCV REQUIRED)
+add_executable(opencv_12_hough main.cpp)
+target_include_directories(opencv_12_hough PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(opencv_12_hough PRIVATE ${OpenCV_LIBS})

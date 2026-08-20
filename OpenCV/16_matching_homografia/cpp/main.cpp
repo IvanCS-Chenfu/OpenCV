@@ -1,0 +1,3 @@
+#include <opencv2/opencv.hpp>
+#include <iostream>
+int main(){ auto a=cv::imread("image1.jpg",0), b=cv::imread("image2.jpg",0); if(a.empty()||b.empty()) return 1; auto orb=cv::ORB::create(2000); std::vector<cv::KeyPoint> k1,k2; cv::Mat d1,d2; orb->detectAndCompute(a,cv::noArray(),k1,d1); orb->detectAndCompute(b,cv::noArray(),k2,d2); cv::BFMatcher bf(cv::NORM_HAMMING); std::vector<std::vector<cv::DMatch>> knn; bf.knnMatch(d1,d2,knn,2); std::vector<cv::Point2f> p1,p2; for(auto& v:knn) if(v.size()==2 && v[0].distance<0.75f*v[1].distance){p1.push_back(k1[v[0].queryIdx].pt); p2.push_back(k2[v[0].trainIdx].pt);} if(p1.size()>=4){ cv::Mat mask; auto H=cv::findHomography(p1,p2,cv::RANSAC,3.0,mask); std::cout<<"H=\n"<<H<<"\ninliers="<<cv::countNonZero(mask)<<"\n";} }

@@ -1,0 +1,2 @@
+#include <opencv2/opencv.hpp>
+int main(){ auto im=cv::imread("binary.png",cv::IMREAD_GRAYSCALE); if(im.empty()) return 1; auto k=cv::getStructuringElement(cv::MORPH_ELLIPSE,{5,5}); cv::Mat a,b,g; cv::morphologyEx(im,a,cv::MORPH_OPEN,k); cv::morphologyEx(im,b,cv::MORPH_CLOSE,k); cv::morphologyEx(im,g,cv::MORPH_GRADIENT,k); cv::imwrite("opening.png",a); cv::imwrite("closing.png",b); cv::imwrite("gradient.png",g); }

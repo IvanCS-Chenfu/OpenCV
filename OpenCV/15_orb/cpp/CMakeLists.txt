@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(opencv_15_orb LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(OpenCV REQUIRED)
+add_executable(opencv_15_orb main.cpp)
+target_include_directories(opencv_15_orb PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(opencv_15_orb PRIVATE ${OpenCV_LIBS})

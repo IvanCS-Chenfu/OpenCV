@@ -1,0 +1,28 @@
+# Builds
+build/
+cmake-build-*/
+**/build/
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Datasets descargados
+/datasets/data/
+**/data/raw/
+
+# ORB-SLAM3 externo (no se versiona)
+/ORB-SLAM3/third_party/*
+!/ORB-SLAM3/third_party/README.md
+
+# Resultados temporales
+**/output/
+**/outputs/
+*.log
+
+# IDE
+.vscode/
+.idea/
+.DS_Store

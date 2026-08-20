@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(orbslam3_frontend_orb LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(OpenCV REQUIRED)
+add_executable(orbslam3_frontend_orb main.cpp)
+target_include_directories(orbslam3_frontend_orb PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(orbslam3_frontend_orb PRIVATE ${OpenCV_LIBS})

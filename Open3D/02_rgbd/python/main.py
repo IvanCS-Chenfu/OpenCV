@@ -1,0 +1,2 @@
+import open3d as o3d
+color=o3d.io.read_image("color.png"); depth=o3d.io.read_image("depth.png"); rgbd=o3d.geometry.RGBDImage.create_from_color_and_depth(color,depth,depth_scale=1000.0,depth_trunc=4.0,convert_rgb_to_intensity=False); intr=o3d.camera.PinholeCameraIntrinsic(o3d.camera.PinholeCameraIntrinsicParameters.PrimeSenseDefault); pc=o3d.geometry.PointCloud.create_from_rgbd_image(rgbd,intr); o3d.io.write_point_cloud("rgbd_cloud.ply",pc)

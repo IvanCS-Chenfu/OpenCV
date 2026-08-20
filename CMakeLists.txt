@@ -1,0 +1,6 @@
+cmake_minimum_required(VERSION 3.16)
+project(VisionPorComputador LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+message(STATUS "Los ejemplos se compilan por apartado para mantener dependencias claras.")
+message(STATUS "Ejemplo: cmake -S OpenCV/15_orb/cpp -B build/orb && cmake --build build/orb")

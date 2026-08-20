@@ -1,0 +1,8 @@
+cmake_minimum_required(VERSION 3.16)
+project(opencv_06_filtrado_convolucion LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+find_package(OpenCV REQUIRED)
+add_executable(opencv_06_filtrado_convolucion main.cpp)
+target_include_directories(opencv_06_filtrado_convolucion PRIVATE ${OpenCV_INCLUDE_DIRS})
+target_link_libraries(opencv_06_filtrado_convolucion PRIVATE ${OpenCV_LIBS})
